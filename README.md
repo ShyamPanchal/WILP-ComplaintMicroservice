@@ -47,6 +47,10 @@ After running docker container run command, the application will be running on [
 ## To deploy on Kubernetes
 
 ```bash
+docker run --rm -it --network=host alpine ash -c "apk add socat && socat TCP-LISTEN:5000,reuseaddr,fork TCP:$(minikube ip):5000"
+docker tag shyam/complaint_service localhost:5000/shyam/complaint_service
+docker push localhost:5000/shyam/complaint_service
+
 minikube start --nodes 2
 minikube dashboard
 

@@ -28,8 +28,8 @@ spec:
     spec:
       containers:
         - name: complaint-service
-          image: shyam/complaint_service
-          imagePullPolicy: Never
+          image: localhost:5000/shyam/complaint_service
+          # imagePullPolicy: Never
           ports:
             - containerPort: 80
           resources:
