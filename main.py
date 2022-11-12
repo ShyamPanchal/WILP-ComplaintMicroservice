@@ -50,7 +50,10 @@ async def root():
 def get_complaint(complaint_id: int,
                   db: Session = Depends(get_db)):
     """Get Complaint by Id."""
-    return crud.get_complaint(db, complaint_id=complaint_id)
+    complaint = crud.get_complaint(db, complaint_id=complaint_id)
+    if complaint is None:
+        raise HTTPException(404, "Complaint not found.")
+    return complaint
 
 
 @app.post("/complaints/", response_model=schemas.Complaint)
