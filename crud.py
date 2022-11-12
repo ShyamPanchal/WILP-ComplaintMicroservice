@@ -39,8 +39,6 @@ def create_complaint(db: Session, user_id: int, complaint: schemas.ComplaintCrea
     db_complaint = models.Complaint()
     db_complaint.user_id = user_id
     db_complaint.complaint = complaint.complaint
-    if complaint.status == models.ComplaintStatus.DRAFT:
-        db_complaint.status = complaint.status
     db.add(db_complaint)
     db.commit()
     db.refresh(db_complaint)

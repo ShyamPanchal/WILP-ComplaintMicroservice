@@ -57,5 +57,5 @@ kubectl create deployment complaint-service --image=registry.k8s.io/echoserver:1
 
 kubectl expose deployment complaint-service --type=LoadBalancer --port=8001
 
-minikube service complaint-service     
+minikube service complaint-service
 ```

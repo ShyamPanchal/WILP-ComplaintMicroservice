@@ -10,7 +10,6 @@ class ComplaintBase(BaseModel):
     """Complaint Base Model."""
 
     complaint: str
-    status: Optional[ComplaintStatus]
 
 
 class ComplaintCreate(ComplaintBase):
@@ -33,6 +32,7 @@ class Complaint(ComplaintBase):
     created: datetime
     priority: ComplaintPriority
     last_updated: datetime
+    status: ComplaintStatus
 
     class Config:
         orm_mode = True

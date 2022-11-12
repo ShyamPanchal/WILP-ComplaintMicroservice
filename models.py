@@ -10,7 +10,6 @@ from database import Base
 class ComplaintStatus(enum.Enum):
     """Complaint Status Enum."""
 
-    DRAFT = 0
     ACTIVE = 1
     PROGRESS = 2
     HOLD = 3
