@@ -46,6 +46,13 @@ async def root():
     return {"message": "Application Running"}
 
 
+@app.get("/complaints/{complaint_id}", response_model=schemas.Complaint)
+def get_complaint(complaint_id: int,
+                  db: Session = Depends(get_db)):
+    """Get Complaint by Id."""
+    return crud.get_complaint(db, complaint_id=complaint_id)
+
+
 @app.post("/complaints/", response_model=schemas.Complaint)
 def create_complaint(complaint: schemas.ComplaintCreate,
                      user: Optional[dict] = Depends(get_user),

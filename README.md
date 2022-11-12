@@ -50,7 +50,7 @@ After running docker container run command, the application will be running on [
 minikube start --nodes 2
 minikube dashboard
 
-eval $(minikube docker-env)
+    eval $(minikube docker-env)
 
 kubectl apply -f complaint-service.yaml
 kubectl create deployment complaint-service --image=registry.k8s.io/echoserver:1.4
